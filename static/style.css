@@ -1,11 +1,11 @@
-.navbar {
+#navBar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.login-form, .register-form {
+.login-form, .register-form, .create-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,4 +22,12 @@ form {
 input {
     margin: 0.5rem;
     border-radius: 5%;
+}
+
+.name {
+    margin-right: 3rem;
+}
+
+.desc {
+    height: 200px;
 }

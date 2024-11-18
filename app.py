@@ -49,11 +49,43 @@ def login():
 @app.route("/")
 @login_required
 def index():
-    return apology("Page not created yet")
+    user_id = session["user_id"]
+    username = db.execute("SELECT username FROM users WHERE id = (?)", user_id)
+
+    return render_template("index.html", user=username[0]["username"])
 
 @app.route("/register", methods=["GET","POST"])
 def register():
     if request.method == "POST":
-        pass
+        user = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        users = db.execute("SELECT username FROM users")
+        if not user:
+            return apology("No username provided")
+        for username in users:
+            if user == username["username"]:
+                return apology("Username already in use")
+        if not password or not confirmation:
+            return apology("Please provide both password and confirmation for it")
+        if password != confirmation:
+            return apology("passwords do not match")
+        pass_hash = generate_password_hash(password)
+        db.execute("INSERT INTO users (username,hash) VALUES(?,?)", user,pass_hash)
+        return redirect("/login")
     else:
         return render_template("register.html")
+
+
+@app.route("/create", methods=["GET", "POST"])
+def create():
+    if request.method == "POST":
+        pass
+    else:
+        return render_template("create.html")
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/login")
