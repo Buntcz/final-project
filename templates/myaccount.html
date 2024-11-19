@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  My Account
+{% endblock %}
+
+{% block main %}
+<div class="welcome">
+<h1>Username: {{ user }}</h1>
+<h2>Posts: </h2>
+{% if not posts %}
+  No posts to show
+{% else %}
+  {% for post in posts %}
+  <div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Location: {{ post["location"] }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Price: {{ post["price"]  }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">How did you feel: {{ post["mood"]  }}</h6>
+      <p class="card-text"> {{ post["desc"] }} </p>
+      <form method="post" action="/delete">
+        <input name="post_id" type="hidden" value="{{ post['post_id'] }}">
+      <button type="submit" class="btn btn-danger showBtn">Delete post</button>
+    </form>
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
+</div>
+{% endblock %}

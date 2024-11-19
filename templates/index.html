@@ -3,7 +3,11 @@
 {% block title %} Main Page  {% endblock %}
 
 {% block main %}
+<div class="welcome">
+<h1> Welcome back to Travex, {{ user  }} </h1>
+<h2>Check your account <a href="/myaccount" class="btn btn-light">here</a></h2>
+<h2>Check other people posts <a href="/home" class="btn btn-light">here</a></h2>
+</div>
 
-<h1> Welcome back, {{ user }}</h1>
 
 {% endblock %}

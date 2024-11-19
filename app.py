@@ -80,10 +80,37 @@ def register():
 @app.route("/create", methods=["GET", "POST"])
 def create():
     if request.method == "POST":
-        pass
+        user_id = session["user_id"]
+        location = request.form.get("location")
+        price = request.form.get("price")
+        mood = request.form.get("mood")
+        desc = request.form.get("desc")
+        if not location:
+            return apology("Please enter the location you have visited")
+        if not desc:
+            return apology("Please describe how you spent your holiday/vacation")
+        db.execute("INSERT INTO posts(location,price,mood,desc,user_id) VALUES(?,?,?,?,?)", location,price,mood,desc,user_id)
+        return redirect("/")
     else:
         return render_template("create.html")
 
+@app.route("/myaccount", methods=["GET","POST"])
+def myaccount():
+    user_id = session["user_id"]
+    posts = db.execute("SELECT * FROM posts WHERE user_id == (?)", user_id)
+    user = db.execute("SELECT username FROM users WHERE id == (?)", user_id)
+    return render_template("myaccount.html", user = user[0]["username"], posts = posts)
+
+@app.route("/home", methods=["GET"])
+def home():
+    posts = db.execute("SELECT * FROM posts ORDER BY post_id DESC LIMIT 10")
+    return render_template("home.html", posts = posts)
+
+@app.route("/delete", methods=["POST","GET"])
+def delete():
+    post_id = request.form.get("post_id")
+    db.execute("DELETE FROM posts WHERE post_id == (?)", post_id)
+    return redirect("/myaccount")
 
 @app.route("/logout")
 def logout():

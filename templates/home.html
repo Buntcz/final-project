@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block main %}
+<div class="home">
+<h1>Recent posts:</h1>
+{% if not posts %}
+  No posts to show
+{% else %}
+  {% for post in posts %}
+  <div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Location: {{ post["location"] }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Price: {{ post["price"]  }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">How did you feel: {{ post["mood"]  }}</h6>
+      <p class="card-text"> {{ post["desc"] }} </p>
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
+</div>
+{% endblock %}

@@ -9,23 +9,23 @@
 <form action="/create" method="post">
     <h3>Tell us what was your adventure</h3>
     <label>Where did you go?</label>
-    <input autocomplete="off" autofocus name="location" placeholder="Location" type="text" required>
+    <input class="form-control" autocomplete="off" autofocus name="location" placeholder="Location" type="text" required>
     <label>How cheap/expensive was it?</label>
-    <select name="price" id="price">
+    <select name="price" id="price" class="form-control">
         <option value="cheap">$(Cheap)</option>
         <option value="fair">$$(fair)</option>
         <option value="high">$$$(high)</option>
         <option value="expensive">$$$$(expensive)</option>
     </select>
     <label>Did you have a great time?</label>
-    <select name="mood" id="mood">
+    <select name="mood" id="mood" class="form-control">
         <option value="Amazing">Amazing😁</option>
         <option value="Great">Great😌</option>
         <option value="not_bad_not_great">Not bad not great😐</option>
         <option value="Bad">Bad🙁</option>
     </select>
-    <input class="desc"  autocomplete="off" autofocus name="desc" placeholder="Tell the people where did u go,how did you go there,which places have you visited. Why did you like/dislike it." type="text" required>
-    <button type="submit">Post</button>
+    <textarea class="desc form-control" name="desc" autocomplete="off" autofocus placeholder="Tell the people where did u go,how did you go there,which places have you visited. Why did you like/dislike it." required></textarea>
+    <button class="btn btn-primary" type="submit">Post</button>
 </form>
 </div>
 

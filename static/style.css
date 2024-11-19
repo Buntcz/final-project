@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.login-form, .register-form, .create-form {
+.login-form, .register-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,9 +14,19 @@
     width: 100%;
 }
 
+.create-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    width: 100%;
+}
+
 form {
     display: flex;
     flex-direction: column;
+    gap: 0.4rem;
 }
 
 input {
@@ -30,4 +40,35 @@ input {
 
 .desc {
     height: 200px;
+}
+
+.desc::placeholder {
+    resize: none;
+    text-wrap: wrap;
+}
+
+.welcome {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.home {
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.formHidden {
+    display: none;
+}
+
+.showBtn {
+    display: inline-block;
 }
