@@ -8,6 +8,7 @@ Travex is a webpage that allows it's users to anoymously post about their travel
 After you register into the webiste using a not already taken username, and a strong password you can go to either the home page, or your account page or to create post so you can create your first post and share it to the world, explain a vacation you went to, where did you, how did it go, was it cheap or expensive, where did you stay, what fun acitivies you did and so on. After you finish create your post and go the homepage so you can see it along other people's post which are all completely anonymous and noone will be able to criticize you. If you don't like your post you can always click the delete button under the post when you are in your account and boom the post is gone. Share your thoughts.
 
 ### Technologies I used:
+```
 Python
 Flask
 Jinja
@@ -16,11 +17,12 @@ CSS
 CSS Bootstrap
 SQLite
 I didn't use Javascript because I did not see it fiting anywere
+```
 
 ## template files and their app.py route functions:
 
 ### all files inside my final project
-
+```
 static/styles.cc
 templates/login.html
 templates/register.html
@@ -33,6 +35,7 @@ templates/apology.html
 app.db
 app.py
 helpers.py
+```
 
 ### login.html / app.py login route
 This is the first file I have created in the project, It contains a login form which upon completion gets checked by the server and if it passes all the conditions: it checks if the user has typed anythin in the box if not it returns an apology, checks if the password is typed if not it returns an apology. The next checks are validations, It checks if the username is within the database, if it is then checks if the hashes of the typed password and the one in the database are matching, if they do it logs in the user and redirects them to the index page.
