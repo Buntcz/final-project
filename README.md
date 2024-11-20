@@ -1,6 +1,6 @@
 # Travex(Website for people to anonymously share their travel expiriences)
 
-#### Video Demo: 
+#### Video Demo: https://www.youtube.com/watch?v=eqRxZAaqFYc&ab_channel=BT_Coding
 #### Description: 
 Travex is a webpage that allows it's users to anoymously post about their travels and adventures, how they felt during the, where they went and how much did it cost them.
 
@@ -62,7 +62,7 @@ The create page is where a user creates their posts, Inside is a form with a loc
 ### delete route in app.py 
 The delete route takes it's information from a form that I made inside each user's post. The form's submit button is the delete button, it takes the post_id from there so it accuretly execute the DELETE command inside the database without hurting the database but only deleting the post with that id which is exclusive.
 
-### logout rout in app.py
+### logout route in app.py
 The logout function clears the current user session and redirects the user back to the login page.
 
 ### @login required in the helpers.py
