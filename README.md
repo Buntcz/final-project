@@ -62,6 +62,9 @@ The create page is where a user creates their posts, Inside is a form with a loc
 ### delete route in app.py 
 The delete route takes it's information from a form that I made inside each user's post. The form's submit button is the delete button, it takes the post_id from there so it accuretly execute the DELETE command inside the database without hurting the database but only deleting the post with that id which is exclusive.
 
+### logout rout in app.py
+The logout function clears the current user session and redirects the user back to the login page.
+
 ### @login required in the helpers.py
 The login required function checks if the user_id inside the session is None, if it is it returns the user to the login page.
 
